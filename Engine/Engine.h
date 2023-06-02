@@ -20,6 +20,20 @@
 #include "Renderer/Primitives.h"
 #include "Core/Random.h"
 //#include "Physics/PhysicsSystem.h"
+#include "PhysicsSpace.h"
+#include "Framework/Body.h"
+#include "Framework/Shape.h"
+#include "ForceGenerator.h"
+#include "Physics/Integrator.h"
+#include "Framework/PhysicsObject.h"
+#include "Framework/Shapes/CircleShape.h"
+
+#include "Physics/Generators/PointForce.h"
+#include "Physics/Generators/DragForce.h"
+#include "Physics/Generators/AreaForce.h"
+#include "Physics/Generators/GravitationalGenerator.h"
+#include "Physics/Joint.h"
+
 
 
 namespace dbf

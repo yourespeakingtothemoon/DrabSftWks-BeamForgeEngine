@@ -20,13 +20,13 @@ namespace dbf
 		void Initialize();
 		void Shutdown();
 
-		void CreateWindow(const char* name, int width, int height, bool resize);
+		void CreateWindow(const char* name, int width, int height, bool resize, float size = 0);
 		//void HideFlags();
 
 		void BeginFrame();
 		void EndFrame();
 		void SetClearColor(const Color& color) { m_clearColor = color; }
-
+		void SetRenderColor(const Color& color);
 		void DrawLine(float x1, float y1, float x2, float y2);
 		void DrawLine(const Vector2& v1, const Vector2& v2, const Color& color);
 		void DrawPoint(float x, float y);
@@ -40,6 +40,10 @@ namespace dbf
 
 		void DrawFilledCircle(const glm::ivec2& point, int radius, const glm::vec4& color);
 
+
+		glm::vec2 ScreenToWorld(const glm::ivec2& screen);
+		glm::ivec2 WorldToScreen(const glm::vec2& world);
+		int WorldToPixels(float world);
 
 
 		static glm::ivec4 ConvertColor(const glm::vec4& color);
@@ -59,6 +63,7 @@ namespace dbf
 
 		SDL_Renderer* m_renderer = nullptr;
 		SDL_Window* m_window = nullptr;
+		glm::vec2 m_extents{ 0 };
 		//SDL_WindowEvent* close = nullptr;
 		//SDL_DisplayMode* m_displaymode = nullptr;
 	};

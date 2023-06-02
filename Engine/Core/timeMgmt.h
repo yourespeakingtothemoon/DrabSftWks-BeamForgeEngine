@@ -18,9 +18,13 @@ namespace dbf
 
 		void gameTick();
 		void resetClk() { m_startTimePoint = clock::now(); }
-
+		float TimeDelta() const { return deltaTime; }
+		void SetFixedDeltaTime(float time) { fixedDeltaTime = time; }
+		float GetFixedDeltaTime() { return fixedDeltaTime; }
 	public:
 		float deltaTime = 0;
+		float fixedDeltaTime{ 0 };
+		float fps{ 0 };
 		float time = 0;
 
 	private:

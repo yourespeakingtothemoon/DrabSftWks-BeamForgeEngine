@@ -33,6 +33,18 @@
     <Filter Include="Source\View\Audio">
       <UniqueIdentifier>{576f9335-f831-4851-b8f2-8ca799dc02c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Physics">
+      <UniqueIdentifier>{af2fe741-4307-42f8-b33d-06ec3f17e7b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Framework\Shapes">
+      <UniqueIdentifier>{0eabf8a6-c909-4b08-bfc4-76ad1473975d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Physics\Generators">
+      <UniqueIdentifier>{62c88dd5-c9d5-4aa9-9769-4375ace83eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Physics\Collision">
+      <UniqueIdentifier>{eb33fd94-0b8f-471d-ba76-c65ba79a3e6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\mathUtils.cpp">
@@ -76,6 +88,45 @@
     </ClCompile>
     <ClCompile Include="Renderer\Primitives.cpp">
       <Filter>Source\View\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Body.cpp">
+      <Filter>Source\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Integrator.cpp">
+      <Filter>Source\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSpace.cpp">
+      <Filter>Source\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="ForceGenerator.cpp">
+      <Filter>Source\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PhysicsObject.cpp">
+      <Filter>Source\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Shapes\CircleShape.cpp">
+      <Filter>Source\Framework\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Generators\Gravitational.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Generators\AreaForce.cpp">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Generators\DragForce.cpp">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Generators\GravitationalGenerator.cpp">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Generators\PointForce.cpp">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Joint.cpp">
+      <Filter>Source\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Collision\Collision.cpp">
+      <Filter>Source\Physics\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +192,54 @@
     </ClInclude>
     <ClInclude Include="Renderer\Primitives.h">
       <Filter>Source\View\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Body.h">
+      <Filter>Source\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Shape.h">
+      <Filter>Source\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSpace.h">
+      <Filter>Source\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="ForceGenerator.h">
+      <Filter>Source\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PhysicsObject.h">
+      <Filter>Source\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Shapes\CircleShape.h">
+      <Filter>Source\Framework\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\PhysicsData.h">
+      <Filter>Source\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Generators\Gravitational.h">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Integrator.h">
+      <Filter>Source\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Generators\AreaForce.h">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Generators\DragForce.h">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Generators\GravitationalGenerator.h">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Generators\PointForce.h">
+      <Filter>Source\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Joint.h">
+      <Filter>Source\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Collision\Collision.h">
+      <Filter>Source\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Collision\Contact.h">
+      <Filter>Source\Physics\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 #include "renderer.h"
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <glm/glm.hpp>
 
 namespace dbf
 {
@@ -22,10 +23,12 @@ namespace dbf
 		TTF_Quit();
 	}
 
-	void Renderer::CreateWindow(const char* name, int width, int height, bool resize)
+	void Renderer::CreateWindow(const char* name, int width, int height, bool resize, float size)
 	{
 		m_width = width;
 		m_height = height;
+		float ratio = static_cast<float>(m_width) / static_cast<float>(m_height);
+		m_extents = { size * ratio, size };
 		if (!resize) {
 			m_window = SDL_CreateWindow(name,400, 300, width, height, SDL_WINDOW_SHOWN );
 
@@ -49,6 +52,11 @@ namespace dbf
 	void Renderer::EndFrame()
 	{
 		SDL_RenderPresent(m_renderer);
+	}
+
+	void Renderer::SetRenderColor(const Color& color)
+	{
+		SDL_SetRenderDrawColor(m_renderer, color.r, color.g, color.b, color.a);
 	}
 
 	void Renderer::DrawLine(float x1, float y1, float x2, float y2)
@@ -94,6 +102,32 @@ namespace dbf
 		glm::ivec4 icolor = ConvertColor(color);
 
 		filledCircleRGBA(m_renderer, point.x, point.y, radius, icolor.r, icolor.g, icolor.b, icolor.a);
+	}
+	glm::vec2 Renderer::ScreenToWorld(const glm::ivec2& screen)
+	{
+		float x = screen.x / (float)m_width; // screen x (0 - 800) -> x (0 - 1)
+		float y = (m_height - screen.y) / (float)m_height; // screen y (0 - 600) -> (0 - 1) flip
+
+		glm::vec2 world;
+		world.x = ((1 - x) * -m_extents.x) + (x * m_extents.x);
+		world.y = ((1 - y) * -m_extents.y) + (y * m_extents.y);
+
+		return world;
+	}
+	glm::ivec2 Renderer::WorldToScreen(const glm::vec2& world)
+	{
+		float x = (world.x + m_extents.x) / (m_extents.x * 2); // world.x = 0 -> (0 + 6.66) / 13.33 -> 0.5
+		float y = (world.y + m_extents.y) / (m_extents.y * 2); // world.y = 0 -> (0 + 5) / 10 = 0.5
+
+		glm::vec2 screen;
+		screen.x = x * m_width;
+		screen.y = (1.0f - y) * m_height;
+
+		return screen;
+	}
+	int Renderer::WorldToPixels(float world)
+	{
+		return (int)(world * (m_height / (m_extents.y * 2)));
 	}
 	glm::ivec4 Renderer::ConvertColor(const glm::vec4& color)
 	{
